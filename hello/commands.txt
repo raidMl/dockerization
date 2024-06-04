@@ -28,3 +28,14 @@ docker start container_id  //start container
 docker login
 docker tag image_id docker_hub_username/image_name:tag || docker tag imgname  docker_hub_username/image_name  //if we want to tag it as latest
 docker push docker_hub_username/image_name:tag || docker push docker_hub_username/image_name
+
+//2using docker-compose
+//init docker-compose
+docker init
+//run docker-compose
+docker-compose up
+
+//docker compose watch
+docker compose up  //to run the containers
+docker compose watch  //to watch the containers
+
