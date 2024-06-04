@@ -1,0 +1,30 @@
+docker run -it ubuntu //it for interactive
+
+docker build -t hello-docker .  //for build image his name is hello-docker from docker file  in this path the tag is by default latest
+docker build -t react-docker .
+
+//we must map the port from the container to the local machine
+docker run -p 5173:5173 react-docker    // also add --host to vite in package.json
+
+docker run -p 5173:5173 -v "$(pwd):/app" -v /app/node_modules react-docker   //to mount the code to the container and also the node_modules
+// so any changes updated in the code will be updated in the container
+
+----------
+docker ps -a to //show all containers
+docker ps  only //runing containers
+
+----------//storp container             //--force to forece it
+docker stop container_id
+docker stop container_name
+
+
+docker rm container_id //remove container
+docker rmi image_id  //remove image
+
+docker start container_id  //start container 
+
+
+// push image to docker hub
+docker login
+docker tag image_id docker_hub_username/image_name:tag || docker tag imgname  docker_hub_username/image_name  //if we want to tag it as latest
+docker push docker_hub_username/image_name:tag || docker push docker_hub_username/image_name
